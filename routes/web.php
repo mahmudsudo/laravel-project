@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +15,19 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+     return view('welcome');
+    
 });
+Route::get('/home', [HomeController::class,"index"]);
+Route::get('/home', [HomeController::class,"index"]);
+
+Route::get('/mahmud', function () {
+    // return view('welcome');
+    return "hello mahmud";
+});
+
+Route::get("{id}",function(int $id) : string{
+return <<<MY
+$id 
+MY;
+})->where("id","[0-10000]+");
